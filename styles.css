@@ -1,3 +1,8 @@
+.footer {
+  background-color: #f5f5f5;
+  bottom: 0;
+  height: 60px; 
+}
 .header-blue {
     background:linear-gradient(135deg, #019633, #64C28F);
     background-color:#006F41;
