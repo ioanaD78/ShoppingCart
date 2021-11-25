@@ -3,9 +3,9 @@ fetch('discs.json')
     .then(data => {
         localSave(data);
         data.forEach(disc => {
-            displayData(disc);
-        })
-    })
+            createData(disc);
+        });
+    });
 
 let rowDiv = document.querySelector(".row");
 
@@ -13,31 +13,22 @@ function localSave(discs) {
     localStorage.setItem("vinyls", JSON.stringify(discs));
 }
 
-function displayData(disc) {
-    let html = `
-    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-    <div class="bg-white rounded shadow-sm"><img src="${disc.image}" alt="${disc.title}"
-            class="img-fluid card-img-top">
-        <div class="p-4">
-            <h5 class="text-dark">${disc.title}</h5>
-            <h6 class="text-muted">${disc.artist}</h6>
-            <p class="small text-muted mb-0 text-truncate p-3">"${disc.description}"
-            </p>
-            <div class="btn btn-primary">Buy now</div>
-            </div>
-        </div>
-    </div>
-</div>`;
-    rowDiv.innerHTML += html;
+const templateCard = document.querySelector(".templateCard");
+
+function createData(discProd) {
+    const displayProd = templateCard.cloneNode(true);
+    displayProd.classList.remove("templateCard");
+
+    console.log(discProd);
+
+    displayProd.querySelector(".mockImg").src = discProd.image;
+    displayProd.querySelector(".mockTitle").innerHTML = discProd.title;
+    displayProd.querySelector(".mockArtist").innerHTML = discProd.artist;
+    displayProd.querySelector(".mockDescription").innerHTML = discProd.description;
+    displayProd.querySelector(".mockPrice").innerHTML = "$" + discProd.price;
+
+    products.appendChild(displayProd);
+
+    displayProd.querySelector("mockButton");
 }
 
-//when click on cart button redirect to cart page
-document.querySelector(".cart-btn").addEventListener('click', function () {
-    document.location = "cart.html";
-})
-const storedInput = localStorage.getItem("vinyls");
-console.log(storedInput)
-
-window.addToCart = () => {
-    console.log('Button clicked');
-}

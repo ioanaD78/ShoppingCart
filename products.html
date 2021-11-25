@@ -4,18 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
     <title>Products</title>
 </head>
 
 <body>
-    <div class="header-blue">
-        <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
-            <div class="container"><a class="navbar-brand" href="home.html">
-                    <img src="assets/logo.png" style="width:500px;"></a>
+    <!-- navbar -->
+    <div class="header-green">
+        <nav class="navbar navbar-dark navbar-expand-md">
+            <div class="container"><a class="navbar-brand" href="landing.html">
+                    <img src=" assets/logo.png" style="width:400px;"></a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
                     <span class="sr-only">Toggle
                         navigation</span>
@@ -24,72 +27,143 @@
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link active" href="#">Link</a>
+                            <a class="nav-link" href="home.html">Home</a>
                         </li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown"
-                                aria-expanded="false" href="#">Dropdown </a>
-                            <div class="dropdown-menu" role="menu">
-                                <a class="dropdown-item" role="presentation" href="#">First Item</a>
-                                <a class="dropdown-item" role="presentation" href="#">Second
-                                    Item</a>
-                                <a class="dropdown-item" role="presentation" href="#">Third Item</a>
-                            </div>
+                        <li class="nav-item active" role="presentation">
+                            <a class="nav-link" href="products.html">Vinyls</a>
                         </li>
                     </ul>
                     <form class="form-inline mr-auto" target="_self">
                         <div class="form-group">
-                            <label for="search-field"><i class="fa fa-search"></i></label>
-                            <input class="form-control search-field" type="search" name="search" id="search-field">
+
                         </div>
                     </form>
-                    <span class="navbar-text">
-                        cart icon
                 </div>
             </div>
+            <div class="dropdown">
+                <button class="dropcart btn bi bi-bag btn-outline-light" onclick="location.href='cart.html';">
+                    <span>Cart</span>
+                </button>
+                <div class="dropdown-content">
+                    <a href="#">Test 1</a>
+                    <a href="#">Test 2</a>
+                    <a href="#">Test 3</a>
+                    <div class="buttons">
+                        <button class="see-cart btn" onclick="location.href='cart.html';">
+                            <span>See cart</span>
+                        </button>
+                        <button class="checkout btn" onclick="location.href='checkout.html';">
+                            <span>Checkout</span>
+                        </button>
+                    </div>
+
+                </div>
         </nav>
+    </div>
 
-        <!-- products area -->
-        <div class="container-fluid">
-            <div class=" row row-cols-2 my-5 align-items-center justify-content-center text-center">
-            </div>
+    <div class="filter"> <button class="btn btn-default" type="button" data-toggle="collapse"
+            data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">Filters<span
+                class="fa fa-filter pl-1"></span></button>
+    </div>
+    <div id="mobile-filter">
+        <div>
+            <h6 class="p-1 border-bottom">Genre</h6>
+            <ul>
+                <li><button class="btn btn-outline-success border-0">Jazz</button></li>
+                <li><button class="btn btn-outline-success border-0">Rock</button></li>
+                <li><button class="btn btn-outline-success border-0">Metal</button></li>
+                <li><button class="btn btn-outline-success border-0">Reggae</button></li>
+            </ul>
         </div>
+        <div>
+            <h6>Condition</h6>
+            <form class="ml-md-2">
+                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="boring"> <label
+                        for="boring" class="pl-1 pt-sm-0 pt-1">Mint+</label> </div>
+                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="ugly"> <label
+                        for="ugly" class="pl-1 pt-sm-0 pt-1">Mint</label> </div>
+                <div class="form-inline border rounded p-md-2 p-sm-1"> <input type="radio" name="type" id="notugly">
+                    <label for="notugly" class="pl-1 pt-sm-0 pt-1">Very good</label>
+                </div>
+            </form>
+        </div>
+    </div>
+    <section id="sidebar">
+        <div>
+            <h6 class="p-1 border-bottom">Genre</h6>
+            <ul>
+                <li><button class="btn btn-outline-success border-0">Jazz</button></li>
+                <li><button class="btn btn-outline-success border-0">Rock</button></li>
+                <li><button class="btn btn-outline-success border-0">Metal</button></li>
+                <li><button class="btn btn-outline-success border-0">Reggae</button></li>
+            </ul>
+        </div>
+        <div>
+            <h6>Condition</h6>
+            <form class="ml-md-2">
+                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="boring"> <label
+                        for="boring" class="pl-1 pt-sm-0 pt-1">Mint+</label> </div>
+                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="ugly"> <label
+                        for="ugly" class="pl-1 pt-sm-0 pt-1">Mint</label> </div>
+                <div class="form-inline border rounded p-md-2 p-sm-1"> <input type="radio" name="type" id="notugly">
+                    <label for="notugly" class="pl-1 pt-sm-0 pt-1">Very good</label>
+                </div>
+            </form>
+        </div>
+    </section>
 
-        <!-- footer -->
-        <footer class="footer text-center text-white" style="background-color: #002D1A;">
-            <!-- Grid container -->
-            <div class="container pt-4">
-                <!-- Section: Social media -->
-                <section class="mb-4">
-                    <!-- Facebook -->
-                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                        data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
-                    <!-- Instagram -->
-                    <a class="btn btn-link btn-floating btn-lg text-dark m-1" href="#!" role="button"
-                        data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
-                </section>
-                <!-- Section: Social media -->
+    <!-- products area -->
+    <div class="discs container-fluid">
+        <div class="row row-cols-2 my-5 align-items-center justify-content-center" id="products">
+            <div class="templateCard">
+                <img src="assets/placeholder.jpg" class="mockImg img-fluid rounded" style="width: 300px;">
+                <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                    <h5 class="mockTitle text-dark"> Title </h5>
+                    <span class="heart"><i class="bi bi-heart-fill"></i></span>
+                </div>
+                <div class="mt-2 px-2">
+                    <h6 class="mockArtist text-muted">Artist</h6>
+                    <p class="mockDescription small text-muted mb-0 p-3 text-truncate">Lorem ipsum dolor sit, amet
+                        consectetur
+                        adipisicing elit.
+                    </p>
+                </div>
+
+                <div class="mockPrice text-muted">
+                    <h4>$25</h4>
+                </div>
+                <div class="text-center mt-2">
+                    <button class="mockButton btn btn-outline-success px-3">Add to cart</button>
+                </div>
             </div>
-            <!-- Grid container -->
 
-            <!-- Copyright -->
-            <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2020 Copyright:
-                <a class="text-dark" href="home.html">The Vinyl Destination</a>
-            </div>
-            <!-- Copyright -->
-        </footer>
+        </div>
+    </div>
 
-        <script src="products.js" />
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
+    <!-- footer 
+    <footer class="footer text-center text-white" style="background-color: #002D1A;">
+        <div class="container pt-4">
+            <!-- Social media 
+    <section class="mb-4">
+        <a class="btn btn-link btn-lg text-light" href="https://www.facebook.com/ioana.dan87/">
+            <i class="bi bi-facebook"></i>
+        </a>
+        <a class="btn btn-link btn-lg text-light" href="https://www.instagram.com/ioana_.dan/">
+            <i class="bi bi-instagram"></i>
+        </a>
+    </section>
+    <!-- Copyright 
+    <section class="copyright">
+        © 2021 Copyright:
+        <a class="text-light" href="home.html">The Vinyl Destination</a>
+    </section>
+    </footer>-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/l"></script>
+    <script src="products.js" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
