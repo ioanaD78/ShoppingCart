@@ -17,6 +17,7 @@ const templateCard = document.querySelector(".templateCard");
 
 function createData(discProd) {
     const displayProd = templateCard.cloneNode(true);
+    templateCard.remove();
     displayProd.classList.remove("templateCard");
 
     console.log(discProd);
@@ -24,7 +25,7 @@ function createData(discProd) {
     displayProd.querySelector(".mockImg").src = discProd.image;
     displayProd.querySelector(".mockTitle").innerHTML = discProd.title;
     displayProd.querySelector(".mockArtist").innerHTML = discProd.artist;
-    displayProd.querySelector(".mockDescription").innerHTML = discProd.description;
+    displayProd.querySelector(".mockCondition").innerHTML = discProd.condition;
     displayProd.querySelector(".mockPrice").innerHTML = "$" + discProd.price;
 
     products.appendChild(displayProd);

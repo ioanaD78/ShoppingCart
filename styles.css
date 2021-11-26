@@ -122,9 +122,6 @@ height:100%;
   transition:all 0.3s ease 0s;
   margin-top: 60px;
 }
-.footer {
-  padding-bottom: 10px;
-}
 .thankyou-page ._header {
   background: #006F41;
   padding: 100px 30px;
@@ -367,17 +364,12 @@ li a:hover {
 .templateCard { 
   visibility: hidden;
 }
-.discs {
-  padding: 20px;
-  border: 0px;
-}
 .discCard {
   background-color: #c1e8ed;
   width: 400px;
   padding: 10px;
   border: 1px solid #eee
 }
-
 .inner-card {
   background: #fff;
   padding: 10px;
@@ -392,14 +384,38 @@ li a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #beb4aa;
+  color: #006F41;
   border-radius: 50%;
-  background-color: #eee
+  
 }
 
 .btn:focus {
   color: #fff;
-  background-color: #025ce2;
-  border-color: #0257d5;
+  background-color: #006F41;
   box-shadow: none
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 300px;
+  object-fit:fill
+}
+
+.banner-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: white;
+  color: black
+}
+
+.carousel-indicators li {
+  height: 0.8rem;
+  width: .8rem;
+  border-radius: 50%;
+  background-color: white
 }
