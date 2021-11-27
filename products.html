@@ -10,15 +10,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="styles.css">
-    <title>Products</title>
+    <title>Products - The Vinyl Destination</title>
 </head>
 
 <body>
     <!-- navbar -->
     <div class="header-green">
-        <nav class="navbar navbar-dark navbar-expand-md">
-            <div class="container"><a class="navbar-brand" href="landing.html">
-                    <img src=" assets/logo.png" style="width:400px;"></a>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="landing.html">
+                    <img src=" assets/logo.png" style="width:400px;">
+                </a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
                     <span class="sr-only">Toggle
                         navigation</span>
@@ -26,19 +28,18 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav">
-                        <li class="nav-item" role="presentation">
+                        <li class="nav-item">
                             <a class="nav-link" href="home.html">Home</a>
                         </li>
-                        <li class="nav-item active" role="presentation">
+                        <li class="nav-item active">
                             <a class="nav-link" href="products.html">Vinyls</a>
                         </li>
                     </ul>
-                    <form class="form-inline mr-auto" target="_self">
-                        <div class="form-group">
-
-                        </div>
-                    </form>
                 </div>
+                <form class="d-flex searchitem">
+                    <input class="form-control me-2 rounded" type="search" placeholder="Search" aria-label="Search">
+                    <i class="bi bi-search"></i>
+                </form>
             </div>
             <div class="dropdown">
                 <button class="dropcart btn bi bi-bag btn-outline-light" onclick="location.href='cart.html';">
@@ -56,108 +57,54 @@
                             <span>Checkout</span>
                         </button>
                     </div>
-
                 </div>
+            </div>
         </nav>
     </div>
-
-    <div class="filter"> <button class="btn btn-default" type="button" data-toggle="collapse"
-            data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">Filters<span
-                class="fa fa-filter pl-1"></span></button>
-    </div>
-    <div id="mobile-filter">
-        <div>
-            <h6 class="p-1 border-bottom">Genre</h6>
-            <ul>
-                <li><button class="btn btn-outline-success border-0">Jazz</button></li>
-                <li><button class="btn btn-outline-success border-0">Rock</button></li>
-                <li><button class="btn btn-outline-success border-0">Metal</button></li>
-                <li><button class="btn btn-outline-success border-0">Reggae</button></li>
-            </ul>
-        </div>
-        <div>
-            <h6>Condition</h6>
-            <form class="ml-md-2">
-                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="boring"> <label
-                        for="boring" class="pl-1 pt-sm-0 pt-1">Mint+</label> </div>
-                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="ugly"> <label
-                        for="ugly" class="pl-1 pt-sm-0 pt-1">Mint</label> </div>
-                <div class="form-inline border rounded p-md-2 p-sm-1"> <input type="radio" name="type" id="notugly">
-                    <label for="notugly" class="pl-1 pt-sm-0 pt-1">Very good</label>
-                </div>
-            </form>
-        </div>
-    </div>
-    <section id="sidebar">
-        <div>
-            <h6 class="p-1 border-bottom">Genre</h6>
-            <ul>
-                <li><button class="btn btn-outline-success border-0">Jazz</button></li>
-                <li><button class="btn btn-outline-success border-0">Rock</button></li>
-                <li><button class="btn btn-outline-success border-0">Metal</button></li>
-                <li><button class="btn btn-outline-success border-0">Reggae</button></li>
-            </ul>
-        </div>
-        <div>
-            <h6>Condition</h6>
-            <form class="ml-md-2">
-                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="boring"> <label
-                        for="boring" class="pl-1 pt-sm-0 pt-1">Mint+</label> </div>
-                <div class="form-inline border rounded p-sm-2 my-2"> <input type="radio" name="type" id="ugly"> <label
-                        for="ugly" class="pl-1 pt-sm-0 pt-1">Mint</label> </div>
-                <div class="form-inline border rounded p-md-2 p-sm-1"> <input type="radio" name="type" id="notugly">
-                    <label for="notugly" class="pl-1 pt-sm-0 pt-1">Very good</label>
-                </div>
-            </form>
-        </div>
-    </section>
 
     <!-- products area -->
     <div class="discs container-fluid">
         <div class="row row-cols-2 my-5 align-items-center justify-content-center" id="products">
-            <div class="templateCard">
+            <div class="templateCard px-3 my-3">
                 <img src="assets/placeholder.jpg" class="mockImg img-fluid rounded" style="width: 300px;">
                 <div class="d-flex justify-content-between align-items-center mt-3 px-2">
                     <h5 class="mockTitle text-dark"> Title </h5>
-                    <span class="heart"><i class="bi bi-heart-fill"></i></span>
+                    <button class="btn heart"><i class="bi bi-heart-fill"></i></button>
                 </div>
                 <div class="mt-2 px-2">
                     <h6 class="mockArtist text-muted">Artist</h6>
-                    <p class="mockDescription small text-muted mb-0 p-3 text-truncate">Lorem ipsum dolor sit, amet
-                        consectetur
-                        adipisicing elit.
+                    <p class="mockCondition small text-muted mb-0 p-3 text-truncate">Mint
                     </p>
                 </div>
 
-                <div class="mockPrice text-muted">
+                <div class="mockPrice text-muted font-weight-bold">
                     <h4>$25</h4>
                 </div>
                 <div class="text-center mt-2">
-                    <button class="mockButton btn btn-outline-success px-3">Add to cart</button>
+                    <button class="mockButton btn add-cart-btn px-3">Add to cart</button>
                 </div>
             </div>
-
         </div>
     </div>
 
-    <!-- footer 
-    <footer class="footer text-center text-white" style="background-color: #002D1A;">
-        <div class="container pt-4">
-            <!-- Social media 
-    <section class="mb-4">
-        <a class="btn btn-link btn-lg text-light" href="https://www.facebook.com/ioana.dan87/">
-            <i class="bi bi-facebook"></i>
-        </a>
-        <a class="btn btn-link btn-lg text-light" href="https://www.instagram.com/ioana_.dan/">
-            <i class="bi bi-instagram"></i>
-        </a>
-    </section>
-    <!-- Copyright 
-    <section class="copyright">
-        © 2021 Copyright:
-        <a class="text-light" href="home.html">The Vinyl Destination</a>
-    </section>
-    </footer>-->
+    <footer class="footer mt-auto text-center text-white" style="background-color: #002D1A;">
+        <div class="container-fluid pt-4">
+            <!-- Social media-->
+            <section class="mb-4">
+                <a class="btn btn-link btn-lg text-light" href="https://www.facebook.com/ioana.dan87/">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a class="btn btn-link btn-lg text-light" href="https://www.instagram.com/ioana_.dan/">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </section>
+            <!-- Copyright -->
+            <section class="copyright">
+                © 2021 Copyright:
+                <a class="text-light" href="home.html">The Vinyl Destination</a>
+            </section>
+        </div>
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/l"></script>
