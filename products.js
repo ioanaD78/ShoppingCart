@@ -46,6 +46,7 @@ function createData(discProd) {
 
 }
 
+const vinyls = JSON.parse(localStorage.getItem("vinyls"));
 //creating an empty array to hold each added object
 const cart = [];
 function addToCart(discId) {
