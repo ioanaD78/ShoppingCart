@@ -295,29 +295,22 @@ li a:hover {
 
 
 .cart-body {
-  background: #ddd;
+  background: #c1e8ed;
   min-height: 100vh;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 
 .card {
-  max-width: 950px;
-  width: 90%;
-  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  border-radius: 1rem;
+  width: 70%;
+  box-shadow: 0 6px 20px 0 #005230;
+  border-radius: .3rem;
   border: transparent
 }
 
-@media(max-width:767px) {
-  .card {
-      margin: 3vh auto
-  }
-}
 
 .cart {
   background-color: #fff;
-
 }
 
 .remove {
@@ -329,7 +322,7 @@ color: #93CFB7
   color: #005230
 }
 .cart-img {
-  width: 60px;
+  width: 100px;
 }
 
 input:focus::-webkit-input-placeholder {
@@ -349,4 +342,8 @@ color: #93CFB7;
 }
 .back-to-shop:hover {
   color:#32A859
+}
+.totals {
+  background:linear-gradient(-135deg, #93CFB7, #fff);
+  font-weight: bold;
 }
