@@ -1,6 +1,7 @@
 let discs = JSON.parse(localStorage.getItem("cart"));
 const cartRow = document.querySelector(".cart-row");
 
+
 if (localStorage.getItem("cart") === null) {
     window.location.replace("empty.html");
 
@@ -11,7 +12,7 @@ if (localStorage.getItem("cart") === null) {
 function displayCart() {
     if (window.location.href.indexOf('cart.html') > -1) {
         discs.forEach((disc) =>
-            display(disc)
+            display(disc),
         )
 
         function display(d) {
@@ -32,7 +33,7 @@ function displayCart() {
         </div>
         <div class="cartPrice  font-weight-bold">€ ${d.price}
         </div>
-        <div class="remove btn"><i class="bi bi-trash-fill"></i></div>
+        <div class="remove btn" data-name="${d.name}"><i class="bi bi-trash-fill"></i></div>
     </div>`
             cartRow.appendChild(card);
             console.log(cartRow);
@@ -47,48 +48,41 @@ function updateQuantity() {
         sign.addEventListener('click', function () {
 
             if (sign.classList.contains('plus')) {
-                //console.log("plus")
-                sign.previousElementSibling.value++;
-                sign.nextElementSibling.value++;
+                value = ++sign.previousElementSibling.value;
+                console.log(value)
             } else if (sign.classList.contains('minus') && sign.nextElementSibling.value > 1) {
-                //console.log("minus")
-                sign.nextElementSibling.value--;
+                value = --sign.nextElementSibling.value;
+                console.log(value)
             }
-            updateProductSubtotal();
+            //updateProductSubtotal();
         })
     });
-
 }
 updateQuantity();
 
 //removing product from cart
-const removeBtns = document.querySelectorAll(".remove");
-const element = document.querySelectorAll(".main")
-function removeProdFromCart() {
-    element.forEach(elem => {
-        removeBtns.forEach(remove => {
-            remove.addEventListener("click", function () {
-                elem.remove();
-            })
-        })
-    })
-}
-removeProdFromCart()
+const remove = document.querySelectorAll(".remove")
+remove.forEach(btn => {
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(".main").remove();
+    });
+});
 
 //updating each product's subtotal
-function updateProductSubtotal() {
-    console.log('test')
-}
+
 
 //updating cart subtotal
-const subtotal = document.querySelector(".subtotal")
-function updateSubtotal() {
-    console.log(parseInt(subtotal.innerText))
-    console.log(parseInt(subtotal.innerText) + 1)
-}
-updateSubtotal()
 
-//updating cart total
+//updating total
+const qty = document.querySelector(".qty")
 function updateTotal() {
+    let total = 0;
+    for (let i = 0; i < discs.length; i += 1) {
+        total += discs[i].price * qty.value
+        console.log(total)
+    }
+    return total.toFixed(2)
 
 }
+updateTotal()
