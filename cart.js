@@ -76,8 +76,10 @@ updateQuantity();
 const remove = document.querySelectorAll(".remove")
 remove.forEach(btn => {
     btn.addEventListener('click', function () {
-        console.log("test")
+        for (let i = 0; i < cart.length; i++) {
 
+            console.log(cart[i].id)
+        }
     });
 });
 ///////////////////////////////////////////////////
