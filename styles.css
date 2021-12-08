@@ -107,7 +107,7 @@ body {
   }
 }
 .thankyou-page ._header {
-  background: #006F41;
+  background:linear-gradient(-135deg, #93CFB7, #93CFB7);
   padding: 100px 30px;
   text-align: center;
 }
@@ -314,9 +314,10 @@ li a:hover {
 }
 
 .remove {
-  margin-left: auto;
+margin-left: auto;
 font-size: 20px;
-color: #93CFB7
+color: #93CFB7;
+background: transparent;
 }
 .remove:hover {
   color: #005230
@@ -349,4 +350,8 @@ color: #93CFB7;
 }
 .free{
   color: #32A859;
+}
+.fade {
+  opacity: 1;
+  transition: opacity 1s ease-out;
 }

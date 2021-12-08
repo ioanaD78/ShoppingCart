@@ -39,7 +39,7 @@ function displayCart() {
         </div>
         <div class="cartPrice  font-weight-bold">${d.price}
         </div>
-        <div class="remove btn" data-name="${d.name}"><i class="bi bi-trash-fill"></i></div>
+        <button class="remove btn" id="b-id-${d.id}"><i class="bi bi-trash-fill"></i></button>
     </div>`
             cartRow.appendChild(card);
             //console.log(cartRow);
@@ -56,17 +56,16 @@ const qtyBtns = document.querySelectorAll(".qty-btn");
 function updateQuantity() {
     qtyBtns.forEach(sign => {
         sign.addEventListener('click', function () {
-
+            console.log(this.id)
             if (sign.classList.contains('plus')) {
-                value = sign.previousElementSibling.value++;
+                value = ++sign.previousElementSibling.value;
                 console.log(value)
                 updateProdSubtotal()
             } else if (sign.classList.contains('minus') && sign.nextElementSibling.value > 1) {
-                value = sign.nextElementSibling.value--;
+                value = --sign.nextElementSibling.value;
                 console.log(value)
                 updateProdSubtotal()
             }
-
         })
     });
 }
@@ -76,12 +75,25 @@ updateQuantity();
 const remove = document.querySelectorAll(".remove")
 remove.forEach(btn => {
     btn.addEventListener('click', function () {
-        for (let i = 0; i < cart.length; i++) {
+        //console.log(this.id)
 
-            console.log(cart[i].id)
-        }
+        //getting the id of the element each button is attached to
+        //btn id like "b-id-1"; product id like "p-id-1"
+        const parentId = "#p" + this.id.substring(1);
+        //console.log(parentId)
+
+        //removing the specific element from HTML
+        document.querySelector(parentId).remove();
+
+        //removing fromlocal storage
+        const cartId = parentId.substring(6)
+        const filtered = cart.filter(item => item.id !== cartId);
+        //reloading page after each delete & save the new data in local storage
+        window.location = window.location
+        localStorage.setItem("cart", JSON.stringify(filtered));
     });
 });
+
 ///////////////////////////////////////////////////
 
 //updating cart prices
@@ -91,12 +103,15 @@ const subtotal = document.querySelector(".subtotal")
 const total = document.querySelector(".total")
 const qty = document.querySelector(".qty")
 const prodSubtotal = document.querySelector(".cartPrice")
+const prodCart = document.querySelectorAll(".main")
 console.log(parseInt(qty.value))
 
 //updating each product's subtotal
 function updateProdSubtotal() {
-    prodSubtotal.innerText = parseInt(qty.value) * parseInt()// product price
+    prodCart.forEach(mn => {
+        prodSubtotal.innerText = parseInt(qty.value) * 29
 
+    })
 }
 
 
@@ -123,7 +138,7 @@ function updateShipping() {
     }
 }
 
-//updating car total
+//updating cart total
 function updateTotal() {
     if (parseInt(shipping.innerText) != 20) {
         total.innerText = parseInt(subtotal.innerText)
