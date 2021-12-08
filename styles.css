@@ -1,9 +1,11 @@
+body {
+  font-family:'Montserrat', sans-serif;  
+}
 .bg {
   background:linear-gradient(-300deg, #32A859, #9FEAC1);
   background-color:#006F41;
   background-attachment:fixed;
-height:100%;
-  font-family:'Montserrat', sans-serif;  
+  height:100%;
 }
  /* Dropdown Button */
 .dropcart {
@@ -105,7 +107,7 @@ height:100%;
   }
 }
 .thankyou-page ._header {
-  background: #006F41;
+  background:linear-gradient(-135deg, #93CFB7, #93CFB7);
   padding: 100px 30px;
   text-align: center;
 }
@@ -184,10 +186,30 @@ li a:hover {
   padding: 10px;
   border-radius: 5px
 }
-
 .heart {
   cursor: pointer;
   font-size: 20px;
+  color: #93CFB7;
+  
+}
+.fav {
+  cursor: pointer;
+  font-size: 20px;
+  color: #005230;
+  border: 0px;
+
+}
+.fav-btn {
+  cursor: pointer;
+  font-size: 20px;
+  color: #93CFB7;
+  border: 0px;
+  background: transparent;
+  
+}
+.nav-btn {
+  cursor: pointer;
+  font-size: 30px;
   color: #006F41;
   border: 0px;
   background: transparent;
@@ -266,4 +288,70 @@ li a:hover {
 }
 .contact:hover {
  color: #93CFB7;
+}
+
+
+
+
+
+.cart-body {
+  background: #c1e8ed;
+  min-height: 100vh;
+  font-size: 1rem;
+}
+
+
+.card {
+  width: 70%;
+  box-shadow: 0 6px 20px 0 #005230;
+  border-radius: .3rem;
+  border: transparent
+}
+
+
+.cart {
+  background-color: #fff;
+}
+
+.remove {
+margin-left: auto;
+font-size: 20px;
+color: #93CFB7;
+background: transparent;
+}
+.remove:hover {
+  color: #005230
+}
+.cart-img {
+  width: 100px;
+}
+
+input:focus::-webkit-input-placeholder {
+  color: transparent
+}
+
+.qty-btn {
+background: transparent;
+color: #93CFB7;
+}
+.qty-btn:hover {
+  color: #005230
+}
+
+.back-to-shop {
+  color:#005230
+}
+.back-to-shop:hover {
+  color:#32A859
+}
+.totals {
+  background:linear-gradient(-135deg, #93CFB7, #fff);
+  font-weight: bold;
+}
+.free{
+  color: #32A859;
+}
+.fade {
+  opacity: 1;
+  transition: opacity 1s ease-out;
 }

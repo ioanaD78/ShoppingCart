@@ -31,21 +31,28 @@ function createData(discProd) {
     displayProd.querySelector(".mockTitle").innerHTML = discProd.title;
     displayProd.querySelector(".mockArtist").innerHTML = discProd.artist;
     displayProd.querySelector(".mockCondition").innerHTML = discProd.condition;
-    displayProd.querySelector(".mockPrice").innerHTML = "$" + discProd.price;
+    displayProd.querySelector(".mockPrice").innerHTML = "€" + discProd.price;
 
     //appending the new created product cards to the "products" container
     products.appendChild(displayProd);
 
     //displaying the button for every product
     //and adding addToCart function for every button
-    displayProd.querySelector("mockButton");
-    displayProd.addEventListener("click", function () {
+    const mockButton = displayProd.querySelector(".mockButton");
+    mockButton.addEventListener("click", function () {
         console.log(discProd.id);
         addToCart(discProd.id);
     })
 
+    //toggling heart icon class when adding to favourites
+    const fav = displayProd.querySelector(".heart");
+    fav.addEventListener("click", function () {
+        console.log(discProd.id)
+        fav.classList.toggle("fav")
+    })
 }
 
+const vinyls = JSON.parse(localStorage.getItem("vinyls"));
 //creating an empty array to hold each added object
 const cart = [];
 function addToCart(discId) {
@@ -60,3 +67,4 @@ function addToCart(discId) {
     //saving to local storage
     localStorage.setItem("cart", JSON.stringify(cart));
 }
+
