@@ -7,14 +7,7 @@ body {
   background-attachment:fixed;
   height:100%;
 }
- /* Dropdown Button */
-.dropcart {
-  background-color: #005230;
-  position: relative;
-  color: white;
-  font-size: 14px;
-  border: none;
-}
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
@@ -25,25 +18,15 @@ body {
   z-index: 1;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #93CFB7;}
+.dropdown-content li:hover {background-color: #93CFB7;}
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: #93CFB7;} 
-.dropdown {
-  margin-right: 200px;
-}
+
 .logo-container {
   display: block;
   margin-left: auto;
@@ -61,7 +44,7 @@ body {
 .start-btn {
   background-color: #93CFB7;
   color: #fff;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 800;
   text-transform: uppercase;
   position: relative;
@@ -107,7 +90,7 @@ body {
   }
 }
 .thankyou-page ._header {
-  background:linear-gradient(-135deg, #93CFB7, #93CFB7);
+  background-color: #93CFB7;
   padding: 100px 30px;
   text-align: center;
 }
@@ -190,7 +173,6 @@ li a:hover {
   cursor: pointer;
   font-size: 20px;
   color: #93CFB7;
-  
 }
 .fav {
   cursor: pointer;
@@ -207,12 +189,13 @@ li a:hover {
   background: transparent;
   
 }
-.nav-btn {
+.nav-btns {
   cursor: pointer;
   font-size: 30px;
   color: #006F41;
   border: 0px;
   background: transparent;
+  margin-right: 20px;
 }
 .carousel-item img {
   width: 100%;
@@ -254,27 +237,20 @@ li a:hover {
   margin-left: 40px
 }
 
-.form-control {
-  height: 32px;
-  color: #c7c6cb;
-  font-size: 13px;
-  border: none
-}
-
-.searchitem {
-  position: relative
-}
-
-.searchitem i {
-  position: absolute;
-  right: 30px;
-  top: 10px;
-  font-size: 13px
-}
 .add-cart-btn {
+   color: #fff;
+  background-color: #005230;
+  font-weight: 500;
+}
+
+.submit-btn{
   color: #fff;
   background-color: #005230;
   font-weight: 500;
+}
+
+.submit-btn:hover {
+  background-color: #93CFB7;
 }
 .add-cart-btn:hover{
   background-color: #93CFB7;
@@ -297,12 +273,11 @@ li a:hover {
 .cart-body {
   background: #c1e8ed;
   min-height: 100vh;
-  font-size: 1rem;
+  overflow: hidden;
 }
 
 
 .card {
-  width: 70%;
   box-shadow: 0 6px 20px 0 #005230;
   border-radius: .3rem;
   border: transparent
@@ -351,7 +326,12 @@ color: #93CFB7;
 .free{
   color: #32A859;
 }
-.fade {
-  opacity: 1;
-  transition: opacity 1s ease-out;
+.checkout {
+  background-color: #93CFB7;
+}
+.see-cart .checkout-btn{
+  background-color: #93CFB7;
+}
+.success{
+  color: green;
 }

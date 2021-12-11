@@ -9,7 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="#">
+    <link rel="stylesheet" href="/css/styles.css">
     <title>Products - The Vinyl Destination</title>
 </head>
 
@@ -18,43 +19,36 @@
     <div class="header-green fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark ">
             <div class="container-fluid">
-                <a class="navbar-brand" href="landing.html">
-                    <img src=" assets/logo.png" style="width:300px; height:30px;">
+                <a class="navbar-brand" href="/html/landing.html">
+                    <img src="/assets/logo.png" style="width:300px; height:30px;">
                 </a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
                     <span class="sr-only">Toggle
                         navigation</span>
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="landing.html">Home</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="products.html">Vinyls</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
-            <div class="dropdown">
-                <button class="dropcart btn bi bi-bag nav-btn" onclick="location.href='cart.html';"></button>
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">Test 1</a>
-                    <a href="#">Test 2</a>
-                    <a href="#">Test 3</a>
-                    <div class="buttons">
-                        <button class="see-cart btn" onclick="location.href='cart.html';">
-                            <span>See cart</span>
-                        </button>
-                        <button class="checkout btn" onclick="location.href='checkout.html';">
-                            <span>Checkout</span>
-                        </button>
+            <div>
+                <div class="dropdown">
+                    <button class="btn bi bi-bag nav-btns"></button>
+                    </button>
+                    <div class="dropdown-content p-2">
+
+                        <ul>
+                            <li> <button class="see-cart btn w-100" onclick="location.href='/html/cart.html';">
+                                    <span>See cart</span>
+                                </button></li>
+                            <li>
+                                <button class="checkout-btn btn w-100" onclick="location.href='/html/checkout.html';">
+                                    <span>Checkout</span>
+                            </li>
+                        </ul>
                     </div>
+
                 </div>
+
             </div>
-            <button class="nav-btn btn"><i class="bi bi-heart-fill"></i></button>
+            <button class="nav-btns btn"><i class="bi bi-heart-fill"></i></button>
         </nav>
     </div>
 
@@ -97,14 +91,14 @@
             <!-- Copyright -->
             <section class="copyright">
                 © 2021 Copyright:
-                <a class="text-light" href="home.html">The Vinyl Destination</a>
+                <a class="text-light" href="/html/home.html">The Vinyl Destination</a>
             </section>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/l"></script>
-    <script src="products.js" />
+    <script src="/js/products.js" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
