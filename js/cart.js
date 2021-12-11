@@ -5,7 +5,7 @@ const cartRow = document.querySelector(".cart-row");
 
 // if cart empty -> display empty cart page
 // else -> display cart page with products
-if (localStorage.getItem("cart") === null) {
+if (localStorage.getItem("cart") === null || cart.length == 0) {
     window.location.replace("/html/empty.html");
 } else {
     displayCart()
@@ -59,30 +59,30 @@ let total = document.querySelector(".total")
 
 function updateQuantity() {
     qtyBtns.forEach(sign => {
-        
-        sign.addEventListener('click', function(e) {
+
+        sign.addEventListener('click', function (e) {
             //console.log(e.target);
             //getting parent element of button
-            let currentDisc = document.querySelector(`#p-id-${e.target.getAttribute("btnProd").replace('btn-','')}`);
+            let currentDisc = document.querySelector(`#p-id-${e.target.getAttribute("btnProd").replace('btn-', '')}`);
             let currentDiscQty = currentDisc.querySelector('.qty');
             let prodSubtotal = currentDisc.querySelector('.cartPrice'); //price per product * qty
             let currentDiscPrice = currentDisc.querySelector('.unit-price'); //original price
-            let cartProduct = cart.find(product => product.id === e.target.getAttribute("btnProd").replace('btn-',''));
-            
+            let cartProduct = cart.find(product => product.id === e.target.getAttribute("btnProd").replace('btn-', ''));
+
             if (sign.classList.contains('plus')) {
                 //update quantity in HTML
                 currentDiscQty.value = ++sign.previousElementSibling.value;
                 //update quantity attribute on cart object
                 cartProduct.quantity++;
             } else if (sign.classList.contains('minus') && sign.nextElementSibling.value > 1) {
-                 //update quantity in HTML
+                //update quantity in HTML
                 currentDiscQty.value = --sign.nextElementSibling.value;
                 //update quantity attribute on cart object
                 cartProduct.quantity--;
             }
-            
-            prodSubtotal.innerText = parseInt(currentDiscQty.value) * Number(currentDiscPrice.innerText);         
-          
+
+            prodSubtotal.innerText = parseInt(currentDiscQty.value) * Number(currentDiscPrice.innerText);
+
             //save updated quantity to local storage
             localStorage.setItem("cart", JSON.stringify(cart));
 
@@ -94,9 +94,9 @@ updateQuantity();
 
 //update cart subtotal
 function updateSubtotal() {
-let sub = 0;
-      //display subtotal before updating quantities
-      for(let i=0; i < cart.length; i++) {
+    let sub = 0;
+    //display subtotal before updating quantities
+    for (let i = 0; i < cart.length; i++) {
         sub += parseInt(cart[i].quantity) * parseInt(cart[i].price);
         subtotal.innerText = sub;
     }
@@ -117,7 +117,7 @@ function updateTotal() {
         shipping.classList.remove("free");
     }
 }
- 
+
 
 function updateShipping() {
     if (parseInt(subtotal.innerText) > 100) {
@@ -143,10 +143,11 @@ remove.forEach(btn => {
         //removing the specific element from HTML
         document.querySelector(parentId).remove();
 
-        //removing fromlocal storage
+        //finding removed item in local storage
         const cartId = parentId.substring(6)
         const filtered = cart.filter(item => item.id !== cartId);
-        //reloading page after each delete & save the new data in local storage
+        //reloading page after each delete
+        //and save the new data in local storage without the deleted item
         window.location = window.location
         localStorage.setItem("cart", JSON.stringify(filtered));
     });
