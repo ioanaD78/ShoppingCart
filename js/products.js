@@ -66,6 +66,7 @@ function createData(discProd) {
             console.log("else")
         }
         localStorage.setItem("cart", JSON.stringify(shoppingCart));
+        window.location = window.location;
     }
     //toggling heart icon class when adding to favourites
     const fav = displayProd.querySelector(".heart");
