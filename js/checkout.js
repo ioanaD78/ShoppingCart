@@ -42,9 +42,9 @@ submitBtn.addEventListener("click", function() {
                 "delivery": date
             });
         localStorage.setItem('shipping-details',
-            JSON.stringify(formData))
+            JSON.stringify(formData));
+        window.location.replace("http://stackoverflow.com");
     }
-    window.location.replace("/html/thx.html");
 });
 
 function validateName() {

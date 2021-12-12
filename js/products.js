@@ -13,6 +13,7 @@ fetch('/discs.json')
 }*/
 
 const templateCard = document.querySelector(".templateCard");
+
 function createData(discProd) {
     // cloning the product HTML template and assigning it to displayProd
     const displayProd = templateCard.cloneNode(true);
@@ -39,7 +40,7 @@ function createData(discProd) {
     //displaying the button for every product
     //and adding addToCart function for every button
     const mockButton = displayProd.querySelector(".mockButton");
-    mockButton.addEventListener("click", function () {
+    mockButton.addEventListener("click", function() {
         //console.log(discProd.id);
         // addToCart(discProd.id);
         saveToLocalStorage(discProd)
@@ -70,7 +71,7 @@ function createData(discProd) {
     }
     //toggling heart icon class when adding to favourites
     const fav = displayProd.querySelector(".heart");
-    fav.addEventListener("click", function () {
+    fav.addEventListener("click", function() {
         console.log(discProd.id)
         fav.classList.toggle("fav")
     })
@@ -79,6 +80,7 @@ function createData(discProd) {
 const vinyls = JSON.parse(localStorage.getItem("vinyls"));
 //creating an empty array to hold each added object
 const cart = [];
+
 function addToCart(discId) {
     let disc = vinyls.filter(disc => disc.id == discId);
     // return an array with a single object inside
@@ -100,6 +102,7 @@ function addToDropdown() {
 }
 addToDropdown()
 
+//displaying dropdown cart
 function displayDropdownCart(d) {
     let cartRow = document.querySelector(".dropdown-content");
     let card = document.createElement("ul");
