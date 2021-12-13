@@ -16,53 +16,57 @@ window.onload = function() {
 function displayDate() {
     let today = new Date().toISOString().split('T')[0];
     document.getElementsByName("date")[0].setAttribute('min', today);
-    let date = document.querySelector("#date");
-    date.addEventListener("change", function() {
-        console.log(new Date(this.value))
-            //put it somewhere?
-    })
 }
 displayDate();
 
 //form validation
 const submitBtn = document.querySelector("#submit")
-submitBtn.addEventListener("click", function() {
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
     let name = document.querySelector("#name").value;
     let email = document.querySelector("#email").value;
     let phone = document.querySelector("#phone").value;
+    let address = document.querySelector("#address").value;
     let date = document.querySelector("#date").value;
 
-    if (validateName() && validateEmail() && validatePhone()) {
+    if (validateName() && validateEmail() && validatePhone() && validateAddress()) {
         formData = [];
         formData
             .push({
                 "name": name,
                 "email": email,
                 "phone": phone,
+                "address": address,
                 "delivery": date
             });
         localStorage.setItem('shipping-details',
             JSON.stringify(formData));
-        window.location.replace("http://stackoverflow.com");
+
+        if (name != "" && email != "" && phone != "" && date != "" && city != "" && address != "") {
+            document.location = "/html/thx.html";
+        } else {
+            alert("Fields cannot be empty!")
+        }
     }
 });
 
 function validateName() {
     let nameRes = true;
-    let name = document.querySelector("#name")
-        //name should only contain letters, - and whitespaces
-    const validNameInput = /^[a-zA-Z\s\-?]*$/;
+    let name = document.querySelector("#name");
+
+    //name should only contain letters, -, ' and whitespaces; cannot end in special character
+    const validNameInput = /^([A-Za-z]+)([ ]{0,1})([\-]?)([A-Za-z]+)?([ ]{0,1})?([A-Za-z]+)?([ ]{0,1})?([A-Za-z]+)$/;
     //check if name input is valid
     name.addEventListener("input", function() {
 
-        if (validNameInput.test(name.value)) {
+        if (validNameInput.test(name.value) && name.classList.contains("invalid")) {
             name.classList.remove("invalid");
             name.classList.add("valid");
-
         } else {
             name.classList.remove("valid");
             name.classList.add("invalid");
-            nameRes = false
+            nameRes = false;
         }
     })
     return nameRes;
@@ -71,9 +75,10 @@ function validateName() {
 
 function validateEmail() {
     let emailRes = true;
-    let email = document.querySelector("#email")
-        //mail
-    const validEmailInput = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let email = document.querySelector("#email");
+
+    //mail like anything@anything.domain (min 2 letters, max 3)
+    const validEmailInput = /^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/;
     //check if mail input is valid
     email.addEventListener("input", function() {
         if (validEmailInput.test(email.value) && email.classList.contains("invalid")) {
@@ -96,7 +101,7 @@ function validatePhone() {
         //phone field should contain only 10 numbers 
         const validPhoneNumber = /^[0-9]{10}$/;
 
-        //check phone field input && length 
+        //check phone field input 
         if (validPhoneNumber.test(phone.value) && phone.classList.contains("invalid")) {
             phone.classList.remove("invalid");
             phone.classList.add("valid");
@@ -108,6 +113,36 @@ function validatePhone() {
     })
     return phoneRes;
 }
+
+function validateAddress() {
+    let addressRes = true;
+    let address = document.querySelector("#address");
+
+    address.addEventListener("input", function() {
+        //address should be like
+        const validAddress = /^(str\.\s)+[a-zA-Z]+\s+([A-z\s]?)+(nr\.\s(\d*)(\s)?)((bl\.\s(\d)*)?)\s(ap\.\s\d*)?/;
+
+        //check address field input
+        if (validAddress.test(address.value) && address.classList.contains("invalid")) {
+            address.classList.remove("invalid");
+            address.classList.add("valid");
+        } else {
+            address.classList.remove("valid");
+            address.classList.add("invalid");
+            addressRes = false;
+        }
+    })
+    return addressRes;
+}
+
+function check() {
+    validatePhone();
+    validateEmail();
+    validateName();
+    validateAddress();
+}
+
 validatePhone();
 validateEmail();
 validateName();
+validateAddress();

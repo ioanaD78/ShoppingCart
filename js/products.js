@@ -122,3 +122,5 @@ function displayDropdownCart(d) {
 
     //console.log(cartRow);
 }
+
+//add to favourites

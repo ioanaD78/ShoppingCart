@@ -316,12 +316,12 @@ input:focus::-webkit-input-placeholder {
 }
 
 .valid {
-    border-width: medium;
+    border-width: .5px;
     border-color: #03b400;
     color: #03b400;
 }
 
 .invalid {
-    border-width: medium;
+    border-width: .5px;
     border-color: #af0c00;
 }
