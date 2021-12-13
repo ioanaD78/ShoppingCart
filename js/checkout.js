@@ -28,6 +28,7 @@ submitBtn.addEventListener("click", function(event) {
     let email = document.querySelector("#email").value;
     let phone = document.querySelector("#phone").value;
     let address = document.querySelector("#address").value;
+    let city = document.querySelector("#city").value;
     let date = document.querySelector("#date").value;
 
     if (validateName() && validateEmail() && validatePhone() && validateAddress()) {
@@ -38,6 +39,7 @@ submitBtn.addEventListener("click", function(event) {
                 "email": email,
                 "phone": phone,
                 "address": address,
+                "city": city,
                 "delivery": date
             });
         localStorage.setItem('shipping-details',

@@ -17,88 +17,76 @@
 <body>
     <!-- navbar -->
     <div class="header-green fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark ">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="/html/landing.html">
-                    <img src="/assets/logo.png" style="width:300px; height:30px;">
-                </a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
-                    <span class="sr-only">Toggle
-                        navigation</span>
-                    <span class="navbar-toggler-icon"></span>
+        <nav class="row navbar navbar-expand-lg navbar-dark">
+            <div class="col container-fluid justify-content-start">
+                <button class="btn bg-transparent">
+                    <img id="navbar-logo" src="/assets/logo.png" style="width:300px; height:30px;">
                 </button>
             </div>
             <div>
-                <div class="dropdown">
+                <div class="col dropdown">
                     <button class="btn bi bi-bag nav-btns"></button>
                     </button>
-                    <div class="dropdown-content p-2">
-
-                        <ul>
-                            <li> <button class="see-cart btn w-100" onclick="location.href='/html/cart.html';">
-                                    <span>See cart</span>
-                                </button></li>
-                            <li>
-                                <button class="checkout-btn btn w-100" onclick="location.href='/html/checkout.html';">
-                                    <span>Checkout</span>
-                            </li>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <ul class="dropdown-cart p-2" id="dropdown-cart">
                         </ul>
                     </div>
                 </div>
             </div>
-            <button class="nav-btns btn"><i class="bi bi-heart-fill"></i></button>
         </nav>
-        </div>
 
-        <!-- products area -->
-        <div class="discs container-fluid align-items-center justify-content-center">
-            <div class="products row row-cols-4 my-5 justify-content-center" id="products">
-                <div class="templateCard px-3 my-3">
-                    <img src="assets/placeholder.jpg" class="mockImg img-fluid rounded" style="width: 300px;">
-                    <div class="d-flex justify-content-between align-items-center mt-3 px-2">
-                        <h5 class="mockTitle text-dark"> Title </h5>
-                        <button class="fav-btn btn"><i class="heart bi bi-heart-fill"></i></button>
-                    </div>
-                    <div class="mt-2 px-2">
-                        <h6 class="mockArtist text-muted">Artist</h6>
-                        <p class="mockCondition small text-muted mb-0 p-3 text-truncate">Mint
-                        </p>
-                    </div>
+    </div>
 
-                    <div class="mockPrice text-muted font-weight-bold">
-                        <h4>€25</h4>
-                    </div>
-                    <div class="text-center mt-2">
-                        <button class="mockButton btn add-cart-btn px-3">Add to cart</button>
-                    </div>
+    <!-- products area -->
+    <div class="discs container-fluid align-items-center justify-content-center">
+        <div class="products row row-cols-4 my-5 justify-content-center" id="products">
+            <div class="template-card px-3 my-3" id="template-card">
+                <img src="./assets/placeholder.jpg" class="mockImg img-fluid rounded" style="width: 300px;">
+                <div class="d-flex justify-content-between align-items-center mt-3 px-2">
+                    <h5 class="mockTitle text-dark"> Title </h5>
+                </div>
+                <div class="mt-2 px-2">
+                    <h6 class="mockArtist text-muted">Artist</h6>
+                    <p class="mockCondition small text-muted mb-0 p-3 text-truncate">Mint
+                    </p>
+                </div>
+
+                <div class="mockPrice text-muted font-weight-bold">
+                    <h4>€25</h4>
+                </div>
+                <div class="text-center mt-2">
+                    <button class="mockButton btn add-cart-btn px-3">Add to cart</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <footer class="footer mt-auto text-center text-white" style="background-color: #002D1A;">
-            <div class="container-fluid pt-4">
-                <!-- Social media-->
-                <section class="mb-4">
-                    <a class="btn btn-link btn-lg text-light" href="https://www.facebook.com/ioana.dan87/">
-                        <i class="bi bi-facebook"></i>
-                    </a>
-                    <a class="btn btn-link btn-lg text-light" href="https://www.instagram.com/ioana_.dan/">
-                        <i class="bi bi-instagram"></i>
-                    </a>
-                </section>
-                <!-- Copyright -->
-                <section class="copyright">
-                    © 2021 Copyright:
-                    <a class="text-light" href="/html/home.html">The Vinyl Destination</a>
-                </section>
-            </div>
-        </footer>
+    <footer class="footer mt-auto text-center text-white" style="background-color: #002D1A;">
+        <div class="container-fluid pt-4">
+            <!-- Social media-->
+            <section class="mb-4">
+                <a class="btn btn-link btn-lg text-light" href="https://www.facebook.com/ioana.dan87/">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a class="btn btn-link btn-lg text-light" href="https://www.instagram.com/ioana_.dan/">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </section>
+            <!-- Copyright -->
+            <section class="copyright">
+                © 2021 Copyright:
+                <a class="text-light" href="/html/landing.html">The Vinyl Destination</a>
+            </section>
+        </div>
+    </footer>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/l"></script>
-        <script src="/js/products.js" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/l"></script>
+    <script src="/js/products.js" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

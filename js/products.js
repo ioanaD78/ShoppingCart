@@ -1,3 +1,4 @@
+//fetching products info from JSON & displaying them 
 fetch('/discs.json')
     .then(response => response.json())
     .then(data => {
@@ -7,24 +8,18 @@ fetch('/discs.json')
         });
     });
 
-
-/*function localSave(discs) {
-    localStorage.setItem("vinyls", JSON.stringify(discs));
-}*/
-
-const templateCard = document.querySelector(".templateCard");
+//cloning a template card for each product
+const templateCard = document.querySelector("#template-card");
 
 function createData(discProd) {
     // cloning the product HTML template and assigning it to displayProd
     const displayProd = templateCard.cloneNode(true);
+
     //removing the "hidden" class from the cloned element so it becomes visible
-    displayProd.classList.remove("templateCard");
+    displayProd.classList.remove("template-card");
+
     //removing the template from the page
     templateCard.remove();
-
-
-
-    console.log(discProd);
 
     //discProd - the disc info we receive from local storage
     //inserting the info into HTML
@@ -38,60 +33,42 @@ function createData(discProd) {
     products.appendChild(displayProd);
 
     //displaying the button for every product
-    //and adding addToCart function for every button
+    //adding addToCart function for every button
     const mockButton = displayProd.querySelector(".mockButton");
     mockButton.addEventListener("click", function() {
-        //console.log(discProd.id);
         // addToCart(discProd.id);
-        saveToLocalStorage(discProd)
-    })
-
-    function saveToLocalStorage(element) {
-        let shoppingCart = []
-        if (localStorage.getItem("cart")) {
-            shoppingCart = JSON.parse(localStorage.getItem("cart"));
-        }
-        console.log("Storage:", element);
-        let elementFound = shoppingCart.filter(
-            (shoppingCartItem) => shoppingCartItem.id == element.id
-
-        );
-        if (elementFound.length) {
-            let index = shoppingCart.findIndex(
-                (shoppingCartItem) => shoppingCartItem.id === elementFound[0].id
-            );
-            console.log("indexul este " + index);
-            shoppingCart[index].quantity++;
-        } else {
-            shoppingCart.push(element);
-            console.log("else")
-        }
-        localStorage.setItem("cart", JSON.stringify(shoppingCart));
-        window.location = window.location;
-    }
-    //toggling heart icon class when adding to favourites
-    const fav = displayProd.querySelector(".heart");
-    fav.addEventListener("click", function() {
-        console.log(discProd.id)
-        fav.classList.toggle("fav")
+        addToCart(discProd)
     })
 }
 
-const vinyls = JSON.parse(localStorage.getItem("vinyls"));
-//creating an empty array to hold each added object
-const cart = [];
-
+//add to cart
 function addToCart(discId) {
-    let disc = vinyls.filter(disc => disc.id == discId);
-    // return an array with a single object inside
-    disc = disc[0];
-    // if produt not in cart, add
-    if (!cart.includes(disc)) {
-        cart.push(disc);
+    //creating an empty array to hold each added product
+    let cart = [];
+
+    //if "cart" exists in local storage, get Item
+    if (localStorage.getItem("cart")) {
+        cart = JSON.parse(localStorage.getItem("cart"));
     }
 
-    //saving to local storage
+    //add to array the product with a matching ID 
+    let discAdded = cart.filter(cartProd => cartProd.id == discId.id);
+
+    //if the array is not empty, check if product exists
+    //if it does => increase quantity
+    if (discAdded.length) {
+        let index = cart.findIndex(cartProd => cartProd.id === discAdded[0].id);
+        cart[index].quantity++;
+    } else {
+        //if the product doesn't exist, add it
+        cart.push(discId);
+    }
+
+    //save cart array in local storage
     localStorage.setItem("cart", JSON.stringify(cart));
+
+    //refresh page to get local storage
+    window.location = window.location;
 }
 
 //adding products to dropdown cart
@@ -99,28 +76,34 @@ function addToDropdown() {
     let cart = JSON.parse(localStorage.getItem("cart"));
     cart.forEach((disc) =>
         displayDropdownCart(disc))
+
+    let dropdown = document.querySelector("#dropdown-content");
+    dropdown.innerHTML +=
+        `<button  class="btn add-cart-btn font-weight-bold mb-2 w-100" id="checkout">Checkout</button>`
 }
 addToDropdown()
 
 //displaying dropdown cart
 function displayDropdownCart(d) {
-    let cartRow = document.querySelector(".dropdown-content");
-    let card = document.createElement("ul");
+    let cartRow = document.querySelector("#dropdown-cart");
+    let card = document.createElement("li");
     card.className = "row template-list";
-    card.innerHTML = `<li class="p-2"> 
-    <div class=""><img class="cartImg cart-img img-fluid"
-                src="${d.image}">
-        <div class="col">
-            <div class="cartTitle row font-weight-bold">${d.title}</div>
-            <div class="cartArtist row text-muted">${d.artist}</div>   
-            <div class="cartQuantity row text-muted">Quantity: ${d.quantity}
-        </div>  
-        <div class="cartPrice font-weight-bold"> € ${d.price * d.quantity} 
-        </div>
-     </li>`
+    card.innerHTML = `
+    <div class="col-9 mb-2">
+    <img src=${d.image} style="width:60px; height:60px;">
+    <span class="font-weight-bold">${d.title}</span>
+    <small>Quantity: ${d.quantity}</small>
+    </div>`
     cartRow.appendChild(card);
-
-    //console.log(cartRow);
 }
 
-//add to favourites
+//navbar buttons redirect
+let navbarLogo = document.querySelector("#navbar-logo");
+navbarLogo.addEventListener("click", function() {
+    window.location.replace("/html/landing.html");
+});
+
+let dropdownCart = document.querySelector("#checkout");
+dropdownCart.addEventListener("click", function() {
+    window.location.replace("/html/cart.html");
+});
