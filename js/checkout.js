@@ -1,6 +1,6 @@
 //creating array with cities
 let cities = [
-    "Bucuresti", "Cluj", "Brasov", "Timisoara"
+    "Bucuresti", "Cluj", "Brasov", "Timisoara", "Iasi", "Constanta", "Craiova", "Brasov", "Galati", "Braila", "Arad", "Pitesti", "Sibiu", "Bacau", "Targu Mures", "Buzau"
 ];
 //on window load populate City drop-down
 window.onload = function() {
@@ -89,7 +89,7 @@ function validateEmail() {
         } else {
             email.classList.remove("valid");
             email.classList.add("invalid");
-            emailRes = false;
+            //emailRes = false;
         }
     })
     return emailRes;
@@ -110,7 +110,7 @@ function validatePhone() {
         } else {
             phone.classList.remove("valid");
             phone.classList.add("invalid");
-            phoneRes = false;
+            //phoneRes = false;
         }
     })
     return phoneRes;
@@ -131,17 +131,10 @@ function validateAddress() {
         } else {
             address.classList.remove("valid");
             address.classList.add("invalid");
-            addressRes = false;
+            //addressRes = false;
         }
-    })
+    });
     return addressRes;
-}
-
-function check() {
-    validatePhone();
-    validateEmail();
-    validateName();
-    validateAddress();
 }
 
 validatePhone();

@@ -33,9 +33,9 @@ function displayCart() {
             <div class="unit-price">${d.price}</div>
         </div>
         <div class="col-3">
-            <button class="qty-btn minus btn" btnProd="btn-${d.id}"><i class=" bi bi-dash-circle-fill" btnProd="btn-${d.id}"></i></i></button>
+            <button class="qty-btn minus btn" id="btn-${d.id}"><i class=" bi bi-dash-circle-fill" id="btn-${d.id}"></i></i></button>
             <input class="qty border text-dark p-2 text-center" value="${d.quantity}" style="width:35px;height:25px;">
-            <button class="qty-btn plus btn" btnProd="btn-${d.id}"><i class=" bi bi-plus-circle-fill" btnProd="btn-${d.id}"></i></button>
+            <button class="qty-btn plus btn" id="btn-${d.id}"><i class=" bi bi-plus-circle-fill" id="btn-${d.id}"></i></button>
         </div>
         <div class="cartPrice font-weight-bold">${d.price * d.quantity} 
         </div>
@@ -60,14 +60,16 @@ let total = document.querySelector(".total")
 function updateQuantity() {
     qtyBtns.forEach(sign => {
 
-        sign.addEventListener('click', function (e) {
+        sign.addEventListener('click', function(e) {
             //console.log(e.target);
             //getting parent element of button
-            let currentDisc = document.querySelector(`#p-id-${e.target.getAttribute("btnProd").replace('btn-', '')}`);
-            let currentDiscQty = currentDisc.querySelector('.qty');
-            let prodSubtotal = currentDisc.querySelector('.cartPrice'); //price per product * qty
-            let currentDiscPrice = currentDisc.querySelector('.unit-price'); //original price
-            let cartProduct = cart.find(product => product.id === e.target.getAttribute("btnProd").replace('btn-', ''));
+            const parentId = document.querySelector(`#p-id-` + this.id.substring(4));
+
+            let currentDiscQty = parentId.querySelector('.qty');
+            let prodSubtotal = parentId.querySelector('.cartPrice'); //price per product * qty
+            let currentDiscPrice = parentId.querySelector('.unit-price'); //original price
+            //replacing the id like btn-id with just id
+            let cartProduct = cart.find(product => product.id === e.target.id.replace('btn-', ''));
 
             if (sign.classList.contains('plus')) {
                 //update quantity in HTML
@@ -132,7 +134,7 @@ function updateShipping() {
 //removing product from cart
 const remove = document.querySelectorAll(".remove")
 remove.forEach(btn => {
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function() {
         //console.log(this.id)
 
         //getting the id of the element each button is attached to
@@ -152,6 +154,3 @@ remove.forEach(btn => {
         localStorage.setItem("cart", JSON.stringify(filtered));
     });
 });
-
-
-
